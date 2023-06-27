@@ -27,7 +27,7 @@ public class CannonController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Instantiate(bulletPrefab, this.transform.position + new Vector3(0.0f, 2.5f, 0.0f), this.transform.rotation);
+            Instantiate(bulletPrefab, this.transform.position + new Vector3(0.0f, 1.3f, 0.0f), this.transform.rotation);
         }
     }
 }
