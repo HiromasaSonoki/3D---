@@ -14,11 +14,19 @@ public class SlimeController : MonoBehaviour
 
     private ScoreController scoreController;
 
+    // AudioClip再生用
+    public AudioClip damageSound;
+    public AudioClip downSound;
+    AudioSource audioSource;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         agent.destination = target.transform.position;
         scoreController = GameObject.Find("ScoreManager").GetComponent<ScoreController>();
+
+        // AudioSourceコンポーネント取得
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -45,12 +53,14 @@ public class SlimeController : MonoBehaviour
 
             if(life <= 0)
             {
+                audioSource.PlayOneShot(downSound);
                 GetComponent<NavMeshAgent>().isStopped = true;
                 GetComponent<Animator>().SetTrigger("Die");
                 scoreController.score += 1;
             }
             else
             {
+                audioSource.PlayOneShot(damageSound);
                 GetComponent<Animator>().SetTrigger("Damage");
             }
             
