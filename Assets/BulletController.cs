@@ -10,6 +10,9 @@ public class BulletController : MonoBehaviour
 
     private ScoreController scoreController;
     // Start is called before the first frame update
+
+    // 経過時間
+    private float time;
     void Start()
     {
         GetComponent<Rigidbody>().AddForce(this.transform.forward * 10.0f, ForceMode.Impulse);
@@ -20,16 +23,22 @@ public class BulletController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // 前フレームからの時間を加算していく
+        time = time + Time.deltaTime;
+
+        if (time > 10.0f)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Enemy")
         {
-            Destroy(other.gameObject);
+           // Destroy(other.gameObject);
             Destroy(this.gameObject);
-            scoreController.score += 1;
+           // scoreController.score += 1;
         }
 
     }
