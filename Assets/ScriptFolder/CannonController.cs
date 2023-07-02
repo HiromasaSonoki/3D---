@@ -83,7 +83,7 @@ public class CannonController : MonoBehaviour
             Time.timeScale = 0f;
             this.isEnd = true;
             //stateTextにGAME OVERを表示（追加）
-            this.stateText.GetComponent<Text>().text = "GAME OVER !!/nScore" + scoreController.score;
+            this.stateText.GetComponent<Text>().text = "GAME OVER!! Score " + scoreController.score;
         }
     }
 }

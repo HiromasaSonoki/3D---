@@ -13,6 +13,8 @@ public class BulletController : MonoBehaviour
 
     // Œo‰ßŽžŠÔ
     private float time;
+
+    
     void Start()
     {
         GetComponent<Rigidbody>().AddForce(this.transform.forward * 10.0f, ForceMode.Impulse);
@@ -38,7 +40,7 @@ public class BulletController : MonoBehaviour
         {
            // Destroy(other.gameObject);
             Destroy(this.gameObject);
-           // scoreController.score += 1;
+           
         }
 
     }

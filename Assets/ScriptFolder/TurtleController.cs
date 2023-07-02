@@ -56,7 +56,7 @@ public class TurtleController : MonoBehaviour
                 audioSource.PlayOneShot(downSound);
                 GetComponent<NavMeshAgent>().isStopped = true;
                 GetComponent<Animator>().SetTrigger("Die");
-                scoreController.score += 1;
+                scoreController.score += 3;
             }
             else
             {

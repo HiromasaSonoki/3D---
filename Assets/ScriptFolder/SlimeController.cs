@@ -19,6 +19,8 @@ public class SlimeController : MonoBehaviour
     public AudioClip downSound;
     AudioSource audioSource;
 
+    public Animator PlayerAnimator;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -27,6 +29,8 @@ public class SlimeController : MonoBehaviour
 
         // AudioSourceコンポーネント取得
         audioSource = GetComponent<AudioSource>();
+
+
     }
 
     void Update()
@@ -57,6 +61,7 @@ public class SlimeController : MonoBehaviour
                 GetComponent<NavMeshAgent>().isStopped = true;
                 GetComponent<Animator>().SetTrigger("Die");
                 scoreController.score += 1;
+                PlayerAnimator.SetTrigger("trigger");
             }
             else
             {
